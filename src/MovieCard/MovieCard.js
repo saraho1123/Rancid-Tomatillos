@@ -8,7 +8,7 @@ const MovieCard = ( {image, title, rating}) => {
         <img className="card-image" src={image}/>
       </div>
       <h3 className="card-title">Movie Title: {title}</h3>
-      <h3 className="rating">Movie Rating: {rating}</h3>
+      <h3 className="rating">Movie Rating: {Math.round( rating * 10 ) / 10}</h3>
     </section>
   )
 }

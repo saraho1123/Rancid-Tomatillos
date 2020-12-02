@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
+import Header from '../Header/Header';
 import movieData from '../movie-data';
 import './App.css';
 
@@ -14,9 +15,7 @@ class App extends Component {
   render() {
     return (
       <main>
-        <header>
-          <h1>Rancid Tomatillos Movie Ratings</h1>
-        </header>
+        <Header />
         <MoviesContainer movies={this.state.movies} />
       </main>
       

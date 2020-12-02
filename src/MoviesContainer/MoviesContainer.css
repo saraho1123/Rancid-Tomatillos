@@ -1,0 +1,8 @@
+.movies-container {
+  background: purple;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}

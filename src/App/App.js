@@ -18,7 +18,6 @@ class App extends Component {
         <Header />
         <MoviesContainer movies={this.state.movies} />
       </main>
-      
     )
   }
 }

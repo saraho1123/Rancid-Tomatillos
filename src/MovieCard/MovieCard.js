@@ -3,7 +3,7 @@ import './MovieCard.css';
 
 const MovieCard = ( {image, title, rating}) => {
   return (
-    <section className="movie-card">
+    <section className="movie-card" onClick={ displayMovieDetails }>
       <div className="image-holder">
         <img className="card-image" src={image}/>
       </div>

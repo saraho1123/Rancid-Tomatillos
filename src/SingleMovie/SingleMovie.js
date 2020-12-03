@@ -4,7 +4,7 @@ import './SingleMovie.css';
 
 const SingleMovie = () => {
   return (
-
+    <p>My mom steals silverware</p>
   )
 }
 

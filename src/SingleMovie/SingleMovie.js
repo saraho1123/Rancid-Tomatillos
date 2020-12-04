@@ -1,7 +1,7 @@
 import React from 'react'
 import './SingleMovie.css';
 
-const SingleMovie = ({ movieDetails }) => {
+const SingleMovie = ({ movieDetails, returnToHome }) => {
   return (
     <section className="single-movie">
       <div className="image-holder">
@@ -16,6 +16,7 @@ const SingleMovie = ({ movieDetails }) => {
       <h3 className="revenue">Movie Revenue: {movieDetails.revenue}</h3>
       <h3 className="runTime">Movie Length: {movieDetails.runTime}</h3>
       <h3 className="tagline">Movie Tagline: {movieDetails.tagline}</h3>
+      <button type="button" className="return-to-home-button" onClick={() => {returnToHome()}}>Return To All Movies</button>
     </section>
   )
 }

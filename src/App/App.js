@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Header from '../Header/Header';
+import SingleMovie from '../SingleMovie/SingleMovie';
 import movieData from '../movie-data';
 import './App.css';
 
@@ -9,33 +10,30 @@ class App extends Component {
     super();
     this.state = {
       movies: movieData.movies,
-      movieDetails: [ ]
+      movieDetails: [],
     }
   }
-  displayMovieDetails = movies.filter(movie => { movie.id === cardId
-    return (
-      <SingleMovie
-        id={movie.id}
-        key={movie.id}
-        image={movie.backdrop_path}
-        title={movie.title}
-        rating={movie.average_rating}
-        releaseDate={movie.release_date}
-        overview={movie.overview}
-        genres={movie.genres}
-        budget={movie.budget}
-        revenue={movie.revenue}
-        runTime={movie.runtime}
-        tagline={movie.tagline}
-      />
-    )
-})
+  
+  displayMovieDetails = (id) => {
+    const singleMovie = this.state.movies.filter(movie => movie.id === id);
+    this.setState({ movieDetails: singleMovie })
+
+    console.log(singleMovie) 
+    console.log(this.state.movieDetails)
+  }
+
+  handleClick = (event) => {
+    event.preventDefault()
+  }
 
   render() {
     return (
       <main>
         <Header />
-        <MoviesContainer movies={this.state.movies} />
+        {this.state.movieDetails.length > 0 ? 
+          <SingleMovie movieDetails={this.state.movieDetails[0]} /> : 
+          <MoviesContainer movies={this.state.movies} movieClicked={this.state.movieDetails} displaySingleMovie={this.displayMovieDetails} />
+        }
       </main>
     )
   }

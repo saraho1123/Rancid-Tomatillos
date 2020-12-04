@@ -22,8 +22,8 @@ class App extends Component {
     console.log(this.state.movieDetails)
   }
 
-  handleClick = (event) => {
-    event.preventDefault()
+  returnToHome = () => {
+    this.setState({ movieDetails: [] } )
   }
 
   render() {
@@ -31,7 +31,7 @@ class App extends Component {
       <main>
         <Header />
         {this.state.movieDetails.length > 0 ? 
-          <SingleMovie movieDetails={this.state.movieDetails[0]} /> : 
+          <SingleMovie movieDetails={this.state.movieDetails[0]} returnToHome={this.returnToHome} /> : 
           <MoviesContainer movies={this.state.movies} movieClicked={this.state.movieDetails} displaySingleMovie={this.displayMovieDetails} />
         }
       </main>

@@ -1,9 +1,9 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
-import SingleMovie from '../SingleMovie/SingleMovie';
+// import SingleMovie from '../SingleMovie/SingleMovie';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({movies}, event) => {
+const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
     const movieCards = movies.map(movie => {
         return (
             <MovieCard 
@@ -12,17 +12,13 @@ const MoviesContainer = ({movies}, event) => {
                 image={movie.poster_path}
                 title={movie.title}
                 rating={movie.average_rating}
+                displayMovieDetails={displaySingleMovie}
+                movieClicked={movieClicked}
             />
         )
     })
-
-
+    console.log(movieClicked)
       return (
-        cardId === movie.id ?
-        <section className='single-movie'>
-          {displayMovieDetails}
-        </section> :
-    
         <section className='movies-container'>
             {movieCards}
         </section>

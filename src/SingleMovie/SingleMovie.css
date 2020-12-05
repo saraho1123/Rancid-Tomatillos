@@ -1,0 +1,22 @@
+.single-movie {
+  background: purple;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  padding-top: 2em;
+}
+
+.backdrop-holder {
+  width: 100%;
+}
+
+.backdrop-image {
+  width: 500px;
+}
+
+.movie-details-holder {
+}
+
+.card-title {
+  font-size: xx-large;
+}

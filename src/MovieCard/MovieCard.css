@@ -19,3 +19,7 @@ img {
   display: flex;
   justify-content: center;
 }
+
+.card-title {
+  font-size: x-large;
+}

@@ -17,7 +17,7 @@ const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
                 movieClicked={movieClicked}
             />
         )
-    })ß
+    })
       return (
         <section className='movies-container'>
             {movieCards}

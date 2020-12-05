@@ -16,7 +16,7 @@ describe('SingleMovie', () => {
     // use of expect toBeInTheDocuments
   })
 
-  // Integration test for movie container
+  // Integration test for app
   it('should take user to movie cards view when return to home button is clicked', () => {
      // setup
      // render single movie with movieDetails and mocked returntohome

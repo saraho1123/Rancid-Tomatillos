@@ -17,9 +17,6 @@ class App extends Component {
   displayMovieDetails = (id) => {
     const singleMovie = this.state.movies.filter(movie => movie.id === id);
     this.setState({ movieDetails: singleMovie })
-
-    console.log(singleMovie) 
-    console.log(this.state.movieDetails)
   }
 
   returnToHome = () => {

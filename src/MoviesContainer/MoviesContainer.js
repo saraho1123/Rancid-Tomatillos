@@ -10,6 +10,7 @@ const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
                 id={movie.id}
                 key={movie.id}
                 image={movie.poster_path}
+                backdrop={movie.backdrop_path}
                 title={movie.title}
                 rating={movie.average_rating}
                 displayMovieDetails={displaySingleMovie}

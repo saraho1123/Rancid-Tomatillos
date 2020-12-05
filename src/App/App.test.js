@@ -11,5 +11,13 @@ describe('App', () => {
     // assertion
     // expect movieContainer to show cards
  })
+
+ it('should take user to single movie when card is clicked', () => {
+  // setup
+   // render of SingleCard, with mocked, id, image, title, rating, and displayMovieDetails
+  // execution
+   // fireEvent or userEvent for onclick of MovieCard
+  // assertion
+   // expect movieContainer to singleMovie
 })
 });

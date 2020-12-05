@@ -3,7 +3,7 @@ import MovieCard from '../MovieCard/MovieCard';
 // import SingleMovie from '../SingleMovie/SingleMovie';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
+const MoviesContainer = ({movies, displaySingleMovie}) => {
     const movieCards = movies.map(movie => {
         return (
             <MovieCard 

@@ -1,9 +1,8 @@
 import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
-// import SingleMovie from '../SingleMovie/SingleMovie';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
+const MoviesContainer = ({movies, movieClicked, getMovieDetails}) => {
     const movieCards = movies.map(movie => {
         return (
             <MovieCard 
@@ -13,7 +12,7 @@ const MoviesContainer = ({movies, movieClicked, displaySingleMovie}) => {
                 backdrop={movie.backdrop_path}
                 title={movie.title}
                 rating={movie.average_rating}
-                displayMovieDetails={displaySingleMovie}
+                getMovieDetails={getMovieDetails}
                 movieClicked={movieClicked}
             />
         )

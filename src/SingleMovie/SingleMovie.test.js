@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ReactDOM from 'react-dom';
-import '@testing-library/jest-dom'
+import '@testing-library/jest-dom';
 import SingleMovie from './SingleMovie';
 
 describe('SingleMovie', () => {

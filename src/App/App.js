@@ -2,34 +2,44 @@ import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Header from '../Header/Header';
 import SingleMovie from '../SingleMovie/SingleMovie';
-import movieData from '../movie-data';
+import { getAllMoviesData, getSingleMovieData } from '../apiCalls.js'
 import './App.css';
 
 class App extends Component {
   constructor () {
     super();
     this.state = {
-      movies: movieData.movies,
-      movieDetails: [],
+      movies: [],
+      errorAllMovies: '',
+      movieDetails: null,
     }
+  }
+
+  componentDidMount = () => {
+    getAllMoviesData()
+      .then(moviesData => this.setState({ movies: moviesData.movies }))
+      .catch(error => this.setState({ errrorAllMoves: error.message }));
   }
   
   displayMovieDetails = (id) => {
-    const singleMovie = this.state.movies.filter(movie => movie.id === id);
-    this.setState({ movieDetails: singleMovie })
+    this.getSingleMovie(id)
+  }
+  getSingleMovie = (id) => {
+    getSingleMovieData(id)
+      .then(singleMovieData => this.setState({ movieDetails: [singleMovieData.movie]  }))
   }
 
   returnToHome = () => {
-    this.setState({ movieDetails: [] } )
+    this.setState({ movieDetails: null })
   }
 
   render() {
     return (
       <main>
         <Header />
-        {this.state.movieDetails.length > 0 ? 
+        {this.state.movieDetails ? 
           <SingleMovie movieDetails={this.state.movieDetails[0]} returnToHome={this.returnToHome} /> : 
-          <MoviesContainer movies={this.state.movies} movieClicked={this.state.movieDetails} displaySingleMovie={this.displayMovieDetails} />
+          <MoviesContainer movies={this.state.movies} movieClicked={this.state.movieDetails} getMovieDetails={this.displayMovieDetails }  /*displaySingleMovie={this.displayMovieDetails}*/ />
         }
       </main>
     )

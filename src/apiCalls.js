@@ -3,7 +3,8 @@ export const getAllMoviesData = () => {
     .then(response => response.json())
 }
 
-export const getSingleMovieData = () => {
-  fetch('https://rancid-tomatillos.herokuapp.com/api/v2//movies/:movie_id')
+export const getSingleMovieData = (id) => {
+  const apiLink = 'https://rancid-tomatillos.herokuapp.com/api/v2//movies/'
+  return fetch(`${apiLink}${id}`)
     .then(response => response.json())
 }

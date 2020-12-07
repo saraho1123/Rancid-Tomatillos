@@ -39,7 +39,7 @@ class App extends Component {
         <Header />
         {this.state.movieDetails ? 
           <SingleMovie movieDetails={this.state.movieDetails[0]} returnToHome={this.returnToHome} /> : 
-          <MoviesContainer movies={this.state.movies} movieClicked={this.state.movieDetails} getMovieDetails={this.displayMovieDetails }  /*displaySingleMovie={this.displayMovieDetails}*/ />
+          <MoviesContainer movies={this.state.movies} getMovieDetails={this.displayMovieDetails } />
         }
       </main>
     )

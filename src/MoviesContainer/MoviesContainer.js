@@ -12,8 +12,7 @@ const MoviesContainer = ({movies, movieClicked, getMovieDetails}) => {
                 backdrop={movie.backdrop_path}
                 title={movie.title}
                 rating={movie.average_rating}
-                getMovieDetails={getMovieDetails}
-                movieClicked={movieClicked}
+                getMovieDetails={getMovieDetails}            
             />
         )
     })

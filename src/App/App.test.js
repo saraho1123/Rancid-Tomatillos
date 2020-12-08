@@ -102,9 +102,9 @@ describe('App', () => {
     render(<App />)
 
     const movieCardRogue = await waitFor(() => screen.getByText('Rogue'));
-    userEvent.click(movieCardRogue)
+    fireEvent.click(movieCardRogue)
 
-    const singleMovie = await waitFor(() => screen.getByText('When the hunter becomes the prey.'))
+    const singleMovie = await waitFor(() => screen.getByText('Tagline: When the hunter becomes the prey.'))
     expect(singleMovie).toBeInTheDocument()
   })
 
@@ -140,6 +140,7 @@ describe('App', () => {
     )
 
     getSingleMovieData.mockResolvedValueOnce({
+      "movie": {
         "id": 718444,
         "title": "Rogue",
         "poster_path": "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
@@ -154,16 +155,16 @@ describe('App', () => {
         "runtime": 106,
         "tagline": "When the hunter becomes the prey.",
         "average_rating": 6.428571428571429,
-      })
+      }
+    })
     
     render(<App />)
     
-    const movieCardRogue = await waitFor(() => screen.getByText('Rogue'))
+    const movieCardRogue = await waitFor(() => screen.getByText('Rogue'));
     
-    fireEvent.click(movieCardRogue)
-    
-    screen.debug
-    const returnButton = await waitFor(() => screen.getByRole('button', { name: /return to all movies/i }))
+    userEvent.click(movieCardRogue)
+     
+    const returnButton = await waitFor(() => screen.getByText('Return To All Movies'))
     
     fireEvent.click(returnButton)
 

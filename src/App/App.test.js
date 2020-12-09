@@ -3,6 +3,8 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom';
 import App from './App';
 import { getAllMoviesData, getSingleMovieData } from '../apiCalls';
+import { MemoryRouter } from 'react-router';
+import { memo } from 'react';
 jest.mock('../apiCalls.js');
 
 // no need to import other components for integration testing as app already has those components imported and the child components that were imported into its children
@@ -38,7 +40,11 @@ describe('App', () => {
       ]}
     )
 
-    render(<App />)
+    render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+    )
 
     const moneyPlaneCard = await waitFor(() => screen.getByText('Money Plane'))
     const mulanCard = await waitFor(() => screen.getByText('Mulan'))
@@ -99,7 +105,11 @@ describe('App', () => {
       }
     })
     
-    render(<App />)
+    render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+    )
 
     const movieCardRogue = await waitFor(() => screen.getByText('Rogue'));
     fireEvent.click(movieCardRogue)
@@ -158,13 +168,17 @@ describe('App', () => {
       }
     })
     
-    render(<App />)
+    render(
+    <MemoryRouter>
+      <App />
+    </MemoryRouter>
+    )
     
     const movieCardRogue = await waitFor(() => screen.getByText('Rogue'));
     
     userEvent.click(movieCardRogue)
      
-    const returnButton = await waitFor(() => screen.getByText('Return To All Movies'))
+    const returnButton = await waitFor(() => screen.getByText('◀Return to All Movies'))
     
     fireEvent.click(returnButton)
 

@@ -17,5 +17,3 @@ const MovieCard = ( {id, image, title, rating }) => {
 }
 
 export default MovieCard
-
-// onClick={() => {getMovieDetails(id)}

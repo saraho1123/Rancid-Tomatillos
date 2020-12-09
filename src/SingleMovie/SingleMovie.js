@@ -42,9 +42,6 @@ class SingleMovie extends Component {
           <h3 className="tagline">Tagline: {this.state.movieDetails.tagline}</h3>
         </div>
         <Link to={'/'} className='return-button'>◀Return to All Movies</Link>
-        {/* <NavLink to={}>
-          <button type="button" className="return-to-home-button" onClick={() => {this.props.returnToHome()}}>Return To All Movies</button>
-        </NavLink> */}
       </section>
     )
   }

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import MoviesContainer from '../MoviesContainer/MoviesContainer';
 import Header from '../Header/Header';
 import SingleMovie from '../SingleMovie/SingleMovie';
-import { getAllMoviesData, getSingleMovieData } from '../apiCalls.js'
+import { getAllMoviesData } from '../apiCalls.js'
 import './App.css';
+import { Route } from 'react-router-dom'
 
 class App extends Component {
   constructor () {
@@ -20,14 +21,6 @@ class App extends Component {
       .then(moviesData => this.setState({ movies: moviesData.movies }))
       .catch(error => this.setState({ errrorAllMoves: error.message }));
   }
-  
-  displayMovieDetails = (id) => {
-    this.getSingleMovie(id)
-  }
-  getSingleMovie = (id) => {
-    getSingleMovieData(id)
-      .then(singleMovieData => this.setState({ movieDetails: [singleMovieData.movie]  }))
-  }
 
   returnToHome = () => {
     this.setState({ movieDetails: null })
@@ -37,10 +30,16 @@ class App extends Component {
     return (
       <main>
         <Header />
-        {this.state.movieDetails ? 
-          <SingleMovie movieDetails={this.state.movieDetails[0]} returnToHome={this.returnToHome} /> : 
-          <MoviesContainer movies={this.state.movies} getMovieDetails={this.displayMovieDetails } />
+        <Route exact path='/' render={() => 
+          <MoviesContainer movies={this.state.movies}  />
         }
+        />
+        <Route path='/:id' 
+          render={({match}) => {
+            return <SingleMovie id={parseInt(match.params.id)}  returnToHome={this.returnToHome} />
+          }
+        }
+          />
       </main>
     )
   }

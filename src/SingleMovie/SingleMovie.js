@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import './SingleMovie.css';
 import { getSingleMovieData } from '../apiCalls.js'
+import { Link, NavLink} from 'react-router-dom';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -11,11 +12,10 @@ class SingleMovie extends Component {
   }
 
   componentDidMount = () => {
-    this.displayMovieDetails(this.props.id)
+    this.getSingleMovie(this.props.id)
+
   }
-  displayMovieDetails = (id) => {
-    this.getSingleMovie(id)
-  }
+
   getSingleMovie = (id) => {
     getSingleMovieData(id)
       .then(singleMovieData => {
@@ -41,7 +41,10 @@ class SingleMovie extends Component {
           <h3 className="runTime">Run-Time: {this.state.movieDetails.runtime} minutes</h3>
           <h3 className="tagline">Tagline: {this.state.movieDetails.tagline}</h3>
         </div>
-        <button type="button" className="return-to-home-button" onClick={() => {this.props.returnToHome()}}>Return To All Movies</button>
+        <Link to={'/'} className='return-button'>◀Return to All Movies</Link>
+        {/* <NavLink to={}>
+          <button type="button" className="return-to-home-button" onClick={() => {this.props.returnToHome()}}>Return To All Movies</button>
+        </NavLink> */}
       </section>
     )
   }

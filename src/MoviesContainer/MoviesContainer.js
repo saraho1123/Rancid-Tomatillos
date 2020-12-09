@@ -2,7 +2,7 @@ import React from 'react';
 import MovieCard from '../MovieCard/MovieCard';
 import './MoviesContainer.css';
 
-const MoviesContainer = ({movies, movieClicked, getMovieDetails}) => {
+const MoviesContainer = ({movies}) => {
     const movieCards = movies.map(movie => {
         return (
             <MovieCard 
@@ -12,7 +12,6 @@ const MoviesContainer = ({movies, movieClicked, getMovieDetails}) => {
                 backdrop={movie.backdrop_path}
                 title={movie.title}
                 rating={movie.average_rating}
-                getMovieDetails={getMovieDetails}            
             />
         )
     })

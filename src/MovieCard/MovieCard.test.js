@@ -1,21 +1,22 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MovieCard from './MovieCard';
-import { MemoryRouter } from 'react-router';
+import { Router, MemoryRouter } from 'react-router';
+import userEvent from '@testing-library/user-event';
+import { createMemoryHistory } from "history";
+
 
 describe('MovieCard', () => {
   it('should correctly render a movie card', () => {
 
     render(
       <MemoryRouter>
-
         <MovieCard 
-        id={1234}
-        image='https://someimage.png'
-        title='The Best Movie'
-        rating='10'
-        getMovieDetails={jest.fn()}
+          id="1234"
+          image='https://someimage.png'
+          title='The Best Movie'
+          rating='10'
         />
       </MemoryRouter>
     )
@@ -25,27 +26,23 @@ describe('MovieCard', () => {
     expect(sampleMovieCardTitle).toBeInTheDocument();
   })
 
-  it.skip('should call display movies with correct id', () => {      
-    /*
-    We are pretty sure we need a unit test here, but we need to do more 
-    research on how to test a button that uses <Link>
-    */
-    const mockDisplayMovieDetails = jest.fn();
+  it('should route user to a specific movie when a movie card is clicked', async () => {      
+    const herstory = createMemoryHistory()
+
     render(
-    <MemoryRouter>
+    <Router history={herstory}>
       <MovieCard 
         id={1234}
         image='https://someimage.png'
         title='The Best Movie'
         rating='10'
-        getMovieDetails={mockDisplayMovieDetails}
-        />
-    </MemoryRouter>
+      />
+    </Router>
     )
 
-    const displayMovieCard = screen.getByAltText('The Best Movie')
-    fireEvent.click(displayMovieCard)
+    const displayMovieCard = await waitFor(() => screen.getByText('The Best Movie'));
+    userEvent.click(displayMovieCard)
 
-    expect(mockDisplayMovieDetails).toHaveBeenCalledWith(1234);
+    expect(herstory.location.pathname).toBe('/1234')
   })
 })

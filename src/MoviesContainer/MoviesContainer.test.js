@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MoviesContainer from './MoviesContainer';
+import { MemoryRouter } from 'react-router';
 
 describe('MovieContainer', () => {
   it('should return movie cards on page load', () => {
@@ -34,10 +35,12 @@ describe('MovieContainer', () => {
     const mockGetMovieDetails = jest.fn();
     
     render(
-      <MoviesContainer
-        movies={mockedMovies}
-        getMovieDetails={mockGetMovieDetails}
-      />
+      <MemoryRouter>
+        <MoviesContainer
+          movies={mockedMovies}
+          getMovieDetails={mockGetMovieDetails}
+        />
+      </MemoryRouter>
     )
     
     const moneyPlaneImage = screen.getByRole('img', { name: /money plane/i });

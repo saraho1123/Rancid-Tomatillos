@@ -1,38 +1,48 @@
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MovieCard from './MovieCard';
+import { Router, MemoryRouter } from 'react-router';
+import userEvent from '@testing-library/user-event';
+import { createMemoryHistory } from "history";
+
 
 describe('MovieCard', () => {
   it('should correctly render a movie card', () => {
 
-    render(<MovieCard 
-      id={1234}
-      image='https://someimage.png'
-      title='The Best Movie'
-      rating='10'
-      getMovieDetails={jest.fn()}
-      />)
+    render(
+      <MemoryRouter>
+        <MovieCard 
+          id="1234"
+          image='https://someimage.png'
+          title='The Best Movie'
+          rating='10'
+        />
+      </MemoryRouter>
+    )
 
     const sampleMovieCardTitle = screen.getByText('The Best Movie');
 
     expect(sampleMovieCardTitle).toBeInTheDocument();
   })
 
-  it('should call displayMovieDetails with correct id', () => {      
+  it('should route user to a specific movie when a movie card is clicked', async () => {      
+    const herstory = createMemoryHistory()
 
-    const mockDisplayMovieDetails = jest.fn();
-    render(<MovieCard 
-      id={1234}
-      image='https://someimage.png'
-      title='The Best Movie'
-      rating='10'
-      getMovieDetails={mockDisplayMovieDetails}
-      />)
+    render(
+    <Router history={herstory}>
+      <MovieCard 
+        id={1234}
+        image='https://someimage.png'
+        title='The Best Movie'
+        rating='10'
+      />
+    </Router>
+    )
 
-    const displayMovieCard = screen.getByAltText('The Best Movie')
-    fireEvent.click(displayMovieCard)
+    const displayMovieCard = await waitFor(() => screen.getByText('The Best Movie'));
+    userEvent.click(displayMovieCard)
 
-    expect(mockDisplayMovieDetails).toHaveBeenCalledWith(1234);
+    expect(herstory.location.pathname).toBe('/1234')
   })
 })

@@ -49,8 +49,8 @@ describe('SingleMovie', () => {
     expect(overview).toBeInTheDocument();
   }) 
   
-  it('should invoke return to home method when Return To Home button is clicked', async () => {
-    const history = createMemoryHistory()
+  it('should route user to home page when Return To Home button is clicked', async () => {
+    const herstory = createMemoryHistory()
     getSingleMovieData.mockResolvedValueOnce({
       "movie": {
         "id": 694919,
@@ -71,7 +71,7 @@ describe('SingleMovie', () => {
     })
       
     render(
-      <MemoryRouter history={history}>
+      <MemoryRouter history={herstory}>
         <SingleMovie
           id="694919"
           />
@@ -81,6 +81,6 @@ describe('SingleMovie', () => {
     const returnButton = await waitFor(() => screen.getByText('◀Return to All Movies'));
     userEvent.click(returnButton)
 
-    expect(history.location.pathname).toBe('/')
+    expect(herstory.location.pathname).toBe('/')
   })
 })

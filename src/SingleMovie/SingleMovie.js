@@ -2,12 +2,17 @@ import React, {Component} from 'react'
 import './SingleMovie.css';
 import { getSingleMovieData } from '../apiCalls.js'
 import { Link } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import Error from '../Error/Error';
+
+
 
 class SingleMovie extends Component {
   constructor(props) {
     super(props);
     this.state= {
       movieDetails: [],
+      error: '',
     }
   }
 
@@ -21,9 +26,18 @@ class SingleMovie extends Component {
       .then(singleMovieData => {
         this.setState({ movieDetails: singleMovieData.movie  })
       })
+      .catch(error => this.setState({ error: error.message }));
   }
 
   render() {
+    if(this.state.error) {
+      return (
+        <Route render={() =>
+          <Error error={this.state.error} />
+        }
+        />
+      )
+    }
     return (
       <section className="single-movie">
         <div className="backdrop-holder">

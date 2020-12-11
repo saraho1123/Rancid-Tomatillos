@@ -12,7 +12,7 @@ describe('Error', () => {
         error={mockError}
       />
     )
-      const errorMessage = screen.getByText('Failed to Fetch');
+      const errorMessage = screen.getByText(`Failed to Fetch`);
 
       expect(errorMessage).toBeInTheDocument();
   })

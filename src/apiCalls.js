@@ -4,7 +4,7 @@ export const getAllMoviesData = () => {
 }
 
 export const getSingleMovieData = (id) => {
-  const apiLink = 'https://rancid-tomatillos.herokuapp.com/api/v2//movies/'
+  const apiLink = 'https://rancid-tomatillas.herokuapp.com/api/v2//movies/'
   return fetch(`${apiLink}${id}`)
     .then(response => response.json())
 }

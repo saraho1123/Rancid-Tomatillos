@@ -4,10 +4,7 @@ import '@testing-library/jest-dom';
 import App from './App';
 import { getAllMoviesData, getSingleMovieData } from '../apiCalls';
 import { MemoryRouter } from 'react-router';
-import { memo } from 'react';
 jest.mock('../apiCalls.js');
-
-// no need to import other components for integration testing as app already has those components imported and the child components that were imported into its children
 
 describe('App', () => {
   it('should dispay movie cards on page load', async () => {
@@ -56,7 +53,6 @@ describe('App', () => {
  })
 
   it('should take user to single movie when card is clicked', async () => {
-    // setup
     getAllMoviesData.mockResolvedValueOnce(
       {'movies': [
         {
@@ -119,7 +115,6 @@ describe('App', () => {
   })
 
   it('should return user to home when Return To All Movies button is clicked from a single movie', async () => {
-    // need to mock single movies!!
     getAllMoviesData.mockResolvedValueOnce(
       {'movies': [
         {

@@ -4,14 +4,15 @@ import Header from '../Header/Header';
 import SingleMovie from '../SingleMovie/SingleMovie';
 import { getAllMoviesData } from '../apiCalls.js'
 import './App.css';
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom';
+import Error from '../Error/Error';
 
 class App extends Component {
   constructor () {
     super();
     this.state = {
       movies: [],
-      errorAllMovies: '',
+      error: '',
       movieDetails: null,
     }
   }
@@ -19,7 +20,7 @@ class App extends Component {
   componentDidMount = () => {
     getAllMoviesData()
       .then(moviesData => this.setState({ movies: moviesData.movies }))
-      .catch(error => this.setState({ errrorAllMoves: error.message }));
+      .catch(error => this.setState({ error: error.message }));
   }
 
   returnToHome = () => {
@@ -27,19 +28,29 @@ class App extends Component {
   }
 
   render() {
+    if(this.state.error) {
+      return (
+        <Route render={() =>
+          <Error error={this.state.error} />
+        }
+        />
+      )
+    }
     return (
       <main>
         <Header />
-        <Route exact path='/' render={() => 
-          <MoviesContainer movies={this.state.movies}  />
-        }
-        />
-        <Route path='/:id' 
-          render={({match}) => {
-            return <SingleMovie id={parseInt(match.params.id)}  returnToHome={this.returnToHome} />
+        <Switch>
+          <Route exact path='/' render={() => 
+            <MoviesContainer movies={this.state.movies}  />
           }
-        }
           />
+          <Route path='/:id' 
+            render={({match}) => {
+              return <SingleMovie id={parseInt(match.params.id)} />
+            }
+          }
+          />
+        </Switch>
       </main>
     )
   }

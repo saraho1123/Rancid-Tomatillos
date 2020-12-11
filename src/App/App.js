@@ -6,6 +6,7 @@ import { getAllMoviesData } from '../apiCalls.js'
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Error from '../Error/Error';
+import RatingSearch from '../RatingSearch/RatingSearch';
 
 class App extends Component {
   constructor () {
@@ -39,6 +40,7 @@ class App extends Component {
     return (
       <main>
         <Header />
+        <RatingSearch />
         <Switch>
           <Route exact path='/' render={() => 
             <MoviesContainer movies={this.state.movies}  />

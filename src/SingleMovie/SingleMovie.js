@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import './SingleMovie.css';
 import { getSingleMovieData } from '../apiCalls.js'
-import { Link, NavLink} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SingleMovie extends Component {
   constructor(props) {
@@ -20,7 +20,6 @@ class SingleMovie extends Component {
     getSingleMovieData(id)
       .then(singleMovieData => {
         this.setState({ movieDetails: singleMovieData.movie  })
-        console.log(singleMovieData);
       })
   }
 

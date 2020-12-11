@@ -1,9 +1,9 @@
 import React from 'react';
 import './Error.css';
 
-const Error = (props) => {
+const Error = ({ error }) => {
   return(
-    <h1>{props.error}</h1>
+    <h1>{error}</h1>
   )
 } 
 

@@ -4,7 +4,7 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 
 const RatingSearch = ({ getMoviesByRating }) => {
   return(
-    <DropdownButton id="dropdown-basic-button" title="Dropdown button" >
+    <DropdownButton id="dropdown-basic-button" title="Search Movies By Rating" className="ratings-dropdown" >
       <Dropdown.Item onClick={(event) => getMoviesByRating(event.target.name)} name={[1, 10]} href="/">All Movies</Dropdown.Item>
       <Dropdown.Item onClick={(event) => getMoviesByRating(event.target.name)} name={[1, 2]} href="#rating-1-2">1-2</Dropdown.Item>
       <Dropdown.Item onClick={(event) => getMoviesByRating(event.target.name)} name={[2, 3]} href="#rating-2-3">2-3</Dropdown.Item>

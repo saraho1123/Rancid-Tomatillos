@@ -6,3 +6,8 @@
   flex-wrap: wrap;
   
 }
+
+.no-movies {
+  text-align: center;
+  background: purple;
+}

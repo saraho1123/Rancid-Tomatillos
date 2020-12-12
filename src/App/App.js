@@ -49,7 +49,7 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <RatingSearch movies={this.state.movies} getMoviesByRating={this.getMoviesByRating} />
+        <RatingSearch getMoviesByRating={this.getMoviesByRating} />
         <Switch>
           <Route exact path='/' render={() => 
             <MoviesContainer movies={this.state.movies} moviesByRating={this.state.moviesByRating} />

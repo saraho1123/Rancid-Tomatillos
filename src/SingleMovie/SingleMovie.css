@@ -1,9 +1,11 @@
+
 .single-movie {
   background: purple;
   width: 100vw;
   height: 100vh;
   text-align: center;
   padding-top: 2em;
+  color: rgb(153, 218, 238);
 }
 
 .backdrop-holder {
@@ -19,6 +21,7 @@
 
 .card-title {
   font-size: xx-large;
+  padding: .5em;
 }
 
 .return-button {
@@ -28,3 +31,5 @@
   color:  rgb(245, 240, 240);
   text-decoration: none;
 }
+
+

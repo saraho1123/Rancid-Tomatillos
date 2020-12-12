@@ -15,6 +15,7 @@ class App extends Component {
       movies: [],
       error: '',
       movieDetails: null,
+      moviesByRating: [],
     }
   }
 
@@ -24,17 +25,16 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   }
 
-  componentDidUpdate =() => {
-    
-  }
-  getMoviesByRating = (event) => {
-    const ratingMinMax = event.target.value;
-    const range = ratingMinMax.split(",");
-    const moviesInRange = this.props.movies.filter(movie => {
-      return movie.rating >= ratingMinMax[0] && movie.rating <= ratingMinMax[1]
-      // we want to pass in an array containing a minimum and maximum value in order to get movies with ratings within a range
+  getMoviesByRating = (ratingMinMax) => {
+    const range = ratingMinMax.split(","); 
+    const moviesInRange = this.state.movies.filter(movie => {
+      return movie.average_rating >= +range[0] && movie.average_rating <= +range[1]
     })
-    this.setState({movies: moviesInRange})
+    if (moviesInRange.length === 0) {
+      this.setState({moviesByRating: ["NaN"]})
+    } else {
+      this.setState({moviesByRating: moviesInRange})
+    }
   }
 
   render() {
@@ -52,7 +52,7 @@ class App extends Component {
         <RatingSearch movies={this.state.movies} getMoviesByRating={this.getMoviesByRating} />
         <Switch>
           <Route exact path='/' render={() => 
-            <MoviesContainer movies={this.state.movies}  />
+            <MoviesContainer movies={this.state.movies} moviesByRating={this.state.moviesByRating} />
           }
           />
           <Route path='/:id' 

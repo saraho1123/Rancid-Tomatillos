@@ -4,6 +4,8 @@
   flex-direction: column;
   text-align: center;
   width: 20vw;
+  min-width: 244px;
+  min-height: 501px;
   margin: 1em;
   border: rgb(92, 92, 231) 1em solid;
   border-radius: .5em;
@@ -12,7 +14,8 @@
 }
 
 img {
-  width: 200px;
+  width: 15vw;
+  min-width: 200px;
   height: auto;
   border-radius: .5em;
 }
@@ -28,4 +31,17 @@ img {
 
 .movie-card-link {
   text-decoration: none; 
+}
+
+.card-details {
+  display: grid;
+  grid-template-rows: 44fr 11fr;
+}
+
+.title {
+  grid-row: 1 / 2;
+}
+
+.rating {
+  grid-row: 2 / 3;
 }

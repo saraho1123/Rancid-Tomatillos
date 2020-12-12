@@ -24,8 +24,17 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   }
 
-  returnToHome = () => {
-    this.setState({ movieDetails: null })
+  componentDidUpdate =() => {
+    
+  }
+  getMoviesByRating = (event) => {
+    const ratingMinMax = event.target.value;
+    const range = ratingMinMax.split(",");
+    const moviesInRange = this.props.movies.filter(movie => {
+      return movie.rating >= ratingMinMax[0] && movie.rating <= ratingMinMax[1]
+      // we want to pass in an array containing a minimum and maximum value in order to get movies with ratings within a range
+    })
+    this.setState({movies: moviesInRange})
   }
 
   render() {
@@ -40,7 +49,7 @@ class App extends Component {
     return (
       <main>
         <Header />
-        <RatingSearch />
+        <RatingSearch movies={this.state.movies} getMoviesByRating={this.getMoviesByRating} />
         <Switch>
           <Route exact path='/' render={() => 
             <MoviesContainer movies={this.state.movies}  />

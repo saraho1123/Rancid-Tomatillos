@@ -38,7 +38,6 @@ describe('RatingSearch', () => {
   
     fireEvent.click(optionDropdownText);
 
-
     expect(mockedGetMoviesByRating).toHaveBeenCalledWith("3,4");
   })
 })

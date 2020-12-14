@@ -10,7 +10,7 @@ jest.mock('../apiCalls.js');
 
 
 describe('SingleMovie', () => {
-  it('should render details for a single movie', async () => {
+  beforeEach(() => {
     getSingleMovieData.mockResolvedValueOnce({
       "movie": {
         "id": 694919,
@@ -29,7 +29,8 @@ describe('SingleMovie', () => {
         "average_rating": 6.666666666666667
       }
     })
-  
+  })
+  it('should render details for a single movie', async () => {
    const mockReturnToHome = jest.fn();
     
     render(
@@ -50,25 +51,7 @@ describe('SingleMovie', () => {
   }) 
   
   it('should route user to home page when Return To Home button is clicked', async () => {
-    const herstory = createMemoryHistory()
-    getSingleMovieData.mockResolvedValueOnce({
-      "movie": {
-        "id": 694919,
-        "title": "Money Plane",
-        "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
-        "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
-        "release_date": "2020-09-29",
-        "overview": "A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.",
-        "genres": [
-          "Action"
-        ],
-        "budget": 0,
-        "revenue": 0,
-        "runtime": 82,
-        "tagline": "",
-        "average_rating": 6.666666666666667
-      }
-    })
+    const herstory = createMemoryHistory();
       
     render(
       <MemoryRouter history={herstory}>

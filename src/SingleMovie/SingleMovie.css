@@ -2,9 +2,9 @@
 .single-movie {
   background: purple;
   width: 100vw;
-  height: 100vh;
+  height: auto;
   text-align: center;
-  padding-top: 2em;
+  padding: 2em;
   color: rgb(153, 218, 238);
 }
 
@@ -13,7 +13,7 @@
 }
 
 .backdrop-image {
-  width: 500px;
+  min-width: 80vw;
 }
 
 .movie-details-holder {

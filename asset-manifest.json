@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/sarah-chadrick-Rancid-Tomatillos/static/css/main.31546b4c.chunk.css",
+    "main.js": "/sarah-chadrick-Rancid-Tomatillos/static/js/main.ffd17de9.chunk.js",
+    "main.js.map": "/sarah-chadrick-Rancid-Tomatillos/static/js/main.ffd17de9.chunk.js.map",
+    "runtime-main.js": "/sarah-chadrick-Rancid-Tomatillos/static/js/runtime-main.1943374c.js",
+    "runtime-main.js.map": "/sarah-chadrick-Rancid-Tomatillos/static/js/runtime-main.1943374c.js.map",
+    "static/css/2.1a02f21c.chunk.css": "/sarah-chadrick-Rancid-Tomatillos/static/css/2.1a02f21c.chunk.css",
+    "static/js/2.382cca1a.chunk.js": "/sarah-chadrick-Rancid-Tomatillos/static/js/2.382cca1a.chunk.js",
+    "static/js/2.382cca1a.chunk.js.map": "/sarah-chadrick-Rancid-Tomatillos/static/js/2.382cca1a.chunk.js.map",
+    "static/js/3.f273b216.chunk.js": "/sarah-chadrick-Rancid-Tomatillos/static/js/3.f273b216.chunk.js",
+    "static/js/3.f273b216.chunk.js.map": "/sarah-chadrick-Rancid-Tomatillos/static/js/3.f273b216.chunk.js.map",
+    "index.html": "/sarah-chadrick-Rancid-Tomatillos/index.html",
+    "static/css/2.1a02f21c.chunk.css.map": "/sarah-chadrick-Rancid-Tomatillos/static/css/2.1a02f21c.chunk.css.map",
+    "static/css/main.31546b4c.chunk.css.map": "/sarah-chadrick-Rancid-Tomatillos/static/css/main.31546b4c.chunk.css.map",
+    "static/js/2.382cca1a.chunk.js.LICENSE.txt": "/sarah-chadrick-Rancid-Tomatillos/static/js/2.382cca1a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1943374c.js",
+    "static/css/2.1a02f21c.chunk.css",
+    "static/js/2.382cca1a.chunk.js",
+    "static/css/main.31546b4c.chunk.css",
+    "static/js/main.ffd17de9.chunk.js"
+  ]
+}

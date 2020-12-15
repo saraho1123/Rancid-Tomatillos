@@ -54,7 +54,7 @@ class SingleMovie extends Component {
           <h3 className="runTime">Run-Time: {this.state.movieDetails.runtime} minutes</h3>
           <h3 className="tagline">Tagline: {this.state.movieDetails.tagline}</h3>
         </div>
-        <Link to={'/sarah-chadrick-Rancid-Tomatillos'} className='return-button'>◀Return to All Movies</Link>
+        <Link to={'/'} className='return-button'>◀Return to All Movies</Link>
       </section>
     )
   }

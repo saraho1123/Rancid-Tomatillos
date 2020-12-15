@@ -1,11 +1,12 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import MoviesContainer from './MoviesContainer';
 import { MemoryRouter } from 'react-router';
 
 describe('MovieContainer', () => {
-  it('should return movie cards on page load', () => {
-    const mockedMovies = [
+  let mockedMovies;
+  beforeEach(() => {
+    mockedMovies = [
       {
         "id": 694919,
         "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
@@ -30,15 +31,16 @@ describe('MovieContainer', () => {
         "average_rating": 6.428571428571429,
         "release_date": "2020-08-20"
       }
-    ];
+    ]
+  })
 
-    const mockGetMovieDetails = jest.fn();
+  it('should return all movie cards on page load', () => {
     
     render(
       <MemoryRouter>
         <MoviesContainer
           movies={mockedMovies}
-          getMovieDetails={mockGetMovieDetails}
+          moviesByRating={mockedMovies}
         />
       </MemoryRouter>
     )
@@ -50,5 +52,60 @@ describe('MovieContainer', () => {
     expect(moneyPlaneImage).toBeInTheDocument();
     expect(mulanImage).toBeInTheDocument();
     expect(rogueImage).toBeInTheDocument();
+  })
+  
+  it('should render movies by chosen rating', () => {
+    const mockedMoviesByRating = [
+      {
+        "id": 694919,
+        "poster_path": "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg",
+        "title": "Money Plane",
+        "average_rating": 6.666666666666667,
+        "release_date": "2020-09-29"
+      },
+      {
+        "id": 718444,
+        "poster_path": "https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg",
+        "backdrop_path": "https://image.tmdb.org/t/p/original//x4UkhIQuHIJyeeOTdcbZ3t3gBSa.jpg",
+        "title": "Rogue",
+        "average_rating": 6.428571428571429,
+        "release_date": "2020-08-20"
+      }
+    ]
+
+    render(
+      <MemoryRouter>
+        <MoviesContainer
+          movies={mockedMovies}
+          moviesByRating={mockedMoviesByRating}
+        />
+      </MemoryRouter>
+    )
+    
+    const moneyPlaneImage = screen.getByRole('img', { name: /money plane/i });
+    const mulanTitle = screen.queryByText('Mulan');
+    const rogueImage = screen.getByRole('img', { name: /rogue/i });
+    
+    expect(moneyPlaneImage).toBeInTheDocument();
+    expect(mulanTitle).toBeNull();
+    expect(rogueImage).toBeInTheDocument();
+  })
+
+  it('should render a message when no movies by chosen rating are available', () => {
+    const mockedMoviesByRating = ["NaN"];
+
+    render(
+      <MemoryRouter>
+        <MoviesContainer
+          movies={mockedMovies}
+          moviesByRating={mockedMoviesByRating}
+        />
+      </MemoryRouter>
+    )
+    
+    const message = screen.getByRole('heading', { name: /there are no movies with this rating range\. please choose a different range\./i });
+    
+    expect(message).toBeInTheDocument();
   })
 })

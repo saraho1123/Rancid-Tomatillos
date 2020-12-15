@@ -44,10 +44,10 @@ class SingleMovie extends Component {
           <img className="backdrop-image" src={this.state.movieDetails.backdrop_path} alt={this.state.movieDetails.title}/>
         </div>
         <div className="movie-details-holder">
-          <h3 className="card-title">{this.state.movieDetails.title}</h3>
+          <h2 className="card-title">{this.state.movieDetails.title}</h2>
           <h3 className="rating">Rating: {Math.round( this.state.movieDetails.average_rating * 10 ) / 10}</h3>
           <h3 className="release-date">Release Date: {this.state.movieDetails.release_date}</h3>
-          <h3 className="overview">Overview: {this.state.movieDetails.overview}</h3>
+          <h3 className="overview">Overview: <br/>{this.state.movieDetails.overview}</h3>
           <h3 className="genres">Genres: {this.state.movieDetails.genres}</h3>
           <h3 className="budget">Budget: ${this.state.movieDetails.budget}.00</h3>
           <h3 className="revenue">Revenue: ${this.state.movieDetails.revenue}.00</h3>

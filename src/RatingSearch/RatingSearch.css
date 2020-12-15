@@ -1,0 +1,12 @@
+.ratings-dropdown {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  display: flex;
+  justify-content: center;
+  background: purple;
+  color: black;
+}
+
+#dropdown-basic-button {
+  background: rgb(92, 92, 231);
+}

@@ -6,6 +6,7 @@ import { getAllMoviesData } from '../apiCalls.js'
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import Error from '../Error/Error';
+import RatingSearch from '../RatingSearch/RatingSearch';
 
 class App extends Component {
   constructor () {
@@ -14,6 +15,7 @@ class App extends Component {
       movies: [],
       error: '',
       movieDetails: null,
+      moviesByRating: [],
     }
   }
 
@@ -23,8 +25,16 @@ class App extends Component {
       .catch(error => this.setState({ error: error.message }));
   }
 
-  returnToHome = () => {
-    this.setState({ movieDetails: null })
+  getMoviesByRating = (ratingMinMax) => {
+    const range = ratingMinMax.split(","); 
+    const moviesInRange = this.state.movies.filter(movie => {
+      return movie.average_rating >= +range[0] && movie.average_rating <= +range[1]
+    })
+    if (moviesInRange.length === 0) {
+      this.setState({moviesByRating: ["NaN"]})
+    } else {
+      this.setState({moviesByRating: moviesInRange})
+    }
   }
 
   render() {
@@ -41,7 +51,10 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path='/' render={() => 
-            <MoviesContainer movies={this.state.movies}  />
+            <section>
+              <RatingSearch getMoviesByRating={this.getMoviesByRating} />
+              <MoviesContainer movies={this.state.movies} moviesByRating={this.state.moviesByRating} />
+            </section>
           }
           />
           <Route path='/:id' 

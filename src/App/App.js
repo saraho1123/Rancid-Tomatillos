@@ -50,7 +50,7 @@ class App extends Component {
       <main>
         <Header />
         <Switch>
-          <Route exact path='/' render={() => 
+          <Route exact path='/sarah-chadrick-Rancid-Tomatillos' render={() => 
             <section>
               <RatingSearch getMoviesByRating={this.getMoviesByRating} />
               <MoviesContainer movies={this.state.movies} moviesByRating={this.state.moviesByRating} />

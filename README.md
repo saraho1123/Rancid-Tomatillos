@@ -8,7 +8,7 @@ An app built by FrontEnd Students in Mod3 designed to facilitate learning React.
 ## Overview
 
 - **[Site Repository](https://github.com/chadrick-d-dev/sarah-chadrick-Rancid-Tomatillos)**
-- **[Deployed UI](https://chadrick-d-dev.github.io/sarah-chadrick-Rancid-Tomatillos/)**
+- **[Deployed Site](https://chadrick-d-dev.github.io/sarah-chadrick-Rancid-Tomatillos/)**
 - **[Project Spec](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)**
 
 #### Technologies Used

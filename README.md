@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
+An app built by FrontEnd Students in Mod3 designed to facilitate learning React. Our goals included: 
+* Gaining competency with React fundamentals
+* Learning how to test React components & asynchronous JS
+* Practicing refactoring
+* Creating a multi-page UX using Router
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+- **[Site Repository](https://github.com/chadrick-d-dev/sarah-chadrick-Rancid-Tomatillos)**
+- **[Deployed UI](https://chadrick-d-dev.github.io/sarah-chadrick-Rancid-Tomatillos/)**
+- **[Project Spec](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)**
 
-In the project directory, you can run:
+#### Technologies Used
 
-### `npm start`
+* React.js
+* React-Router
+* React Tesitng Library
+* Jest
+* Bootstrap
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### Installation
+In your terminal:
+1. Clone the repo-
+`git@github.com:chadrick-d-dev/sarah-chadrick-Rancid-Tomatillos.git`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. Install NPM packages- `npm install`
 
-### `npm test`
+## Strategy to Build our App
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is our first project using react, where we learned how to code in javascript with jsx, and how to write unit/integration/asynchronous tests. We were tasked with building a simple movie rating application. Our first objective was learning how to get movies to display using react. Next we added a feature where a user could click on a movie to view a new page with more details about that movie along with a button to return to the home view. We also had to use asynchronous javascript to fetch from the api for both movies on home page, and single displayed movie. An additional feature we added was a dropdown button that a user could use to view movies within a range of ratings.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Wireframe: 
+![Screen Shot 2020-12-15 at 4 17 21 PM](https://user-images.githubusercontent.com/12281987/102284287-298bcb80-3ef1-11eb-983e-e47dc9840b4d.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Screen Shot 2020-12-15 at 4 17 49 PM](https://user-images.githubusercontent.com/12281987/102284310-30b2d980-3ef1-11eb-8acc-f24f7df2651e.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
+#### 
 
-### `npm run eject`
+## Challenges
+* After we added Router to our application all of our tests failed. We were able to successfully research ways to get our tests to past.
+* Deployment was challenging, but we were able to resolve our setbacks with teamwork.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Roadmap
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The total time allotted for this project was approximately 15 days. Future features contemplated by the developers include the following:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Improving the CSS
+* Adding a feature for user to search by genre
+* Adding a feature for user to rate movies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+See the [open issues](https://github.com/chadrick-d-dev/sarah-chadrick-Rancid-Tomatillos/issues) for a list of proposed features (and known issues).
 
-## Learn More
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+ [Sarah Osgood](https://github.com/saraho1123)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ [Chadrick Dickerson](https://github.com/chadrick-d-dev)

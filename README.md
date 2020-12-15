@@ -37,7 +37,8 @@ This is our first project using react, where we learned how to code in javascrip
 ![Screen Shot 2020-12-15 at 4 17 49 PM](https://user-images.githubusercontent.com/12281987/102284310-30b2d980-3ef1-11eb-8acc-f24f7df2651e.png)
 
 ## Usage
-#### 
+#### User Clicking on a Movie, Returning back to main page, and then using the Rating Search dropdown
+![usage](https://user-images.githubusercontent.com/12281987/102286179-fc411c80-3ef4-11eb-89fc-00012768d815.gif)
 
 ## Challenges
 * After we added Router to our application all of our tests failed. We were able to successfully research ways to get our tests to past.

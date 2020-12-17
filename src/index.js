@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = (
-  <BrowserRouter basename='/sarah-chadrick-Rancid-Tomatillos'>
+  <BrowserRouter basename='/Rancid-Tomatillos'>
     <App />
   </BrowserRouter>
 )
